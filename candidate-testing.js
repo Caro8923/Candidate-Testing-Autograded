@@ -22,10 +22,6 @@ for (i = 0; i < questions.length; i++) {
   console.log(`Your answer was ${candidateAnswers} and the correct answer is ${correctAnswers[i]}`)
 }
 
-/*
-for (i=0; i < questions.length; i++) {
-  console.log(`Your answer was ${candidateAnswers[i]} and the correct answer is ${correctAnswers[i]}`);
-}*/
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
