@@ -18,8 +18,9 @@ let correctAnswers = ["Sally Ride", "true", "40", "Trajectory", "3"]
 let candidateAnswers =[];
 
 for (i = 0; i < questions.length; i++) {
-  candidateAnswers = input.question(questions[i])
-  console.log(`Your answer was ${candidateAnswers} and the correct answer is ${correctAnswers[i]}`)
+  let candidateAnswer = input.question(questions[i])
+  candidateAnswers.push(candidateAnswer)
+  console.log(`Your answer was ${candidateAnswer} and the correct answer is ${correctAnswers[i]}`)
 }
 
 
