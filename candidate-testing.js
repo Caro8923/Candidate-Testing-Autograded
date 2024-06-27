@@ -18,40 +18,64 @@ let correctAnswers = ["Sally Ride", "true", "40", "Trajectory", "3"]
 let candidateAnswers =[];
 
 
-for (i = 0; i < questions.length; i++) {
-  let candidateTestAnswer = input.question(questions[i])
-  candidateAnswers.push(candidateTestAnswer)
-  console.log(`Your Answer: ${candidateTestAnswer} \nCorrect Answer: ${correctAnswers[i]} \n`)
-}
-
-
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
   const input = require('readline-sync');
-  candidateName = input.question("Enter your name: ");
+  candidateName = input.question("Candidate Name: ");
 }
+
 
 function askQuestion() {
+
+  for (i = 0; i < questions.length; i++) {
+    let candidateTestAnswer = input.question((i+1) + ") " + questions[i])
+    candidateAnswers.push(candidateTestAnswer)
+    console.log(`Your Answer: ${candidateTestAnswer} \nCorrect Answer: ${correctAnswers[i]} \n`)
+  }
+}
+  
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
 
+/* Part 1 Answer
 const input = require('readline-sync');
 candidateAnswer = input.question(question);
-}
+*/
 
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
   
+ /* Part 1.2c Answer
   if (candidateAnswer === correctAnswer) {
 console.log("Correct")
   } else {
     console.log("Incorrect")
   }
+    */
 
 
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
+  let grade ;  //TODO 3.2 use this variable to calculate the candidates score.
+  let numCorrectAnswers = 0
 
+  for (i = 0; i < questions.length; i++) {
+    if (candidateAnswers[i].toUpperCase() === correctAnswers[i].toUpperCase()) {
+      numCorrectAnswers += 1
+    } else {
+
+    }
+  }
+    grade = numCorrectAnswers / questions.length * 100
+
+    console.log(`>>> Overall Grade: ${grade}% (${numCorrectAnswers} of ${questions.length} responses correct) <<<`)
+
+    if (grade >= 80){
+      console.log(">>> Status: PASSED <<<")
+    } else {
+      console.log(">>> Status: FAILED <<<")
+    }
+
+  
 
   return grade;
 }
